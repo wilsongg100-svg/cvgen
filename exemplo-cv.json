@@ -1,0 +1,66 @@
+{
+  "name": "João P. Silva",
+  "email": "joao.silva@email.pt",
+  "phone": "+351 912 345 678",
+  "location": "Lisboa, PT",
+  "linkedin": "linkedin.com/in/joaosilva",
+  "website": "joaosilva.com",
+  "summary": "Profissional de Gestão de Projetos Tecnológicos com +8 anos de experiência na entrega de soluções inovadoras. Especialista em metodologias Agile (Scrum, Kanban), liderança de equipas e otimização de processos. Focado em resultados, com histórico comprovado de aumento de eficiência (+25%) e redução de custos. Fluente em Português e Inglês.",
+  "experience": [
+    {
+      "role": "Gestor de Projetos Sénior",
+      "company": "Empresa Tecnológica Líder",
+      "location": "Lisboa, PT",
+      "startDate": "Out 2019",
+      "endDate": "",
+      "achievements": [
+        "Liderou +10 projetos de desenvolvimento de software críticos (orçamentos >€500k), garantindo entrega pontual e dentro do orçamento (100% sucesso).",
+        "Implementou metodologias Agile, aumentando a produtividade da equipa em 20%.",
+        "Coordenou equipas multifuncionais de 15 pessoas, promovendo a colaboração.",
+        "Geriu stakeholders e reportou KPI's de progresso à administração semanalmente."
+      ]
+    },
+    {
+      "role": "Coordenador de Projetos Jr.",
+      "company": "Inovação Solutions Ltd.",
+      "location": "Porto, PT",
+      "startDate": "Set 2016",
+      "endDate": "Set 2019",
+      "achievements": [
+        "Geriu o ciclo de vida completo de 5 projetos digitais.",
+        "Otimizou o processo de on-boarding de clientes, reduzindo o tempo em 30%.",
+        "Facilitou daily stand-ups e sprint plannings utilizando Jira."
+      ]
+    }
+  ],
+  "education": [
+    {
+      "degree": "Licenciatura em Gestão de Empresas",
+      "institution": "Universidade de Lisboa",
+      "startDate": "Set 2013",
+      "endDate": "Jun 2016",
+      "grade": "16/20"
+    }
+  ],
+  "skillGroups": [
+    {
+      "label": "Liderança & Gestão",
+      "items": ["Agile/Scrum", "Kanban", "Jira", "Gestão de Riscos", "Liderança de Equipa", "Negociação"]
+    },
+    {
+      "label": "Técnicas",
+      "items": ["Python (Básico)", "SQL", "AWS", "Microsoft Office Suite", "Gestão Orçamental"]
+    },
+    {
+      "label": "Idiomas",
+      "items": ["Português (Nativo)", "Inglês (Fluente, C1)"]
+    }
+  ],
+  "certifications": [
+    {
+      "title": "Project Management Professional (PMP)",
+      "issuer": "Project Management Institute",
+      "year": "2021"
+    }
+  ]
+}

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<title>{{.Candidate.Name}} - CV</title>
+<style>
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #111;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 48px;
+    line-height: 1.45;
+    font-size: 12.5px;
+  }
+  .header {
+    text-align: center;
+    margin-bottom: 18px;
+  }
+  h1 {
+    font-size: 22px;
+    letter-spacing: 1px;
+    margin: 0 0 6px 0;
+  }
+  .contact {
+    font-size: 12px;
+    color: #222;
+  }
+  .contact div {
+    margin: 1px 0;
+  }
+  h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 1.5px solid #111;
+    padding-bottom: 3px;
+    margin: 18px 0 8px 0;
+  }
+  .entry {
+    margin-bottom: 10px;
+  }
+  .entry-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+  .entry-left {
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 12.5px;
+  }
+  .entry-right {
+    font-weight: bold;
+    font-size: 12.5px;
+    text-align: right;
+    white-space: nowrap;
+    margin-left: 12px;
+  }
+  .entry-meta {
+    font-size: 12px;
+    color: #333;
+    margin-bottom: 3px;
+  }
+  ul.achievements {
+    margin: 2px 0 0 0;
+    padding-left: 16px;
+  }
+  ul.achievements li {
+    margin-bottom: 1px;
+  }
+  .skills-line {
+    margin-bottom: 3px;
+  }
+  .skills-line b {
+    font-weight: bold;
+  }
+  .edu-row, .cert-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 4px;
+  }
+  .edu-left, .cert-left {
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  .edu-right, .cert-right {
+    text-align: right;
+    white-space: nowrap;
+    margin-left: 12px;
+  }
+</style>
+</head>
+<body>
+
+  <div class="header">
+    <h1>{{.Candidate.Name}}</h1>
+    <div class="contact">
+      <div>
+        {{if .Candidate.Phone}}Telefone: {{.Candidate.Phone}}{{end}}
+        {{if .Candidate.Email}} | Email: {{.Candidate.Email}}{{end}}
+        {{if .Candidate.Website}} | Portefólio: {{.Candidate.Website}}{{end}}
+      </div>
+      {{if .Candidate.LinkedIn}}
+      <div>LinkedIn: {{.Candidate.LinkedIn}}{{if .Candidate.Location}} | {{.Candidate.Location}}{{end}}</div>
+      {{end}}
+    </div>
+  </div>
+
+  {{if .Candidate.Summary}}
+  <h2>Resumo Profissional</h2>
+  <p>{{.Candidate.Summary}}</p>
+  {{end}}
+
+  {{if .Experience}}
+  <h2>Experiência Profissional</h2>
+  {{range .Experience}}
+  <div class="entry">
+    <div class="entry-row">
+      <div class="entry-left">{{.Company}}</div>
+      <div class="entry-right">{{.Role}}</div>
+    </div>
+    <div class="entry-meta">{{.StartDate}} – {{if .EndDate}}{{.EndDate}}{{else}}Presente{{end}}{{if .Location}}, {{.Location}}{{end}}</div>
+    {{if .Achievements}}
+    <ul class="achievements">
+      {{range .Achievements}}<li>{{.}}</li>{{end}}
+    </ul>
+    {{end}}
+  </div>
+  {{end}}
+  {{end}}
+
+  {{if .SkillGroups}}
+  <h2>Competências</h2>
+  {{range .SkillGroups}}
+  <div class="skills-line"><b>{{.Label}}:</b> {{range $i, $s := .Items}}{{if $i}}, {{end}}{{$s}}{{end}}.</div>
+  {{end}}
+  {{end}}
+
+  {{if .Education}}
+  <h2>Educação</h2>
+  {{range .Education}}
+  <div class="edu-row">
+    <div class="edu-left">{{.Institution}}</div>
+    <div class="edu-right">{{.Degree}}</div>
+  </div>
+  <div class="entry-meta">{{.StartDate}} – {{.EndDate}}</div>
+  {{end}}
+  {{end}}
+
+  <div style="font-size:1px; line-height:1px; color:#ffffff; overflow:hidden; user-select:none;">CVGEN_DATA_START:{{.EmbeddedData}}:CVGEN_DATA_END</div>
+</body>
+</html>

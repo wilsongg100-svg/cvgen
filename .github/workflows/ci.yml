@@ -1,0 +1,80 @@
+name: CI
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    name: Unit & Integration Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: "1.26.5"
+          cache: true
+
+      - name: Install dependencies
+        run: go mod download
+
+      - name: Run tests
+        run: go test ./... -v -race -coverprofile=coverage.out
+
+      - name: Show coverage
+        run: go tool cover -func=coverage.out
+
+  lint:
+    name: Code Quality (Lint)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: "1.26"
+          cache: false
+
+      - name: Lint
+        uses: golangci/golangci-lint-action@v6
+        with:
+          version: latest
+          # Forces compilation with Go 1.26 to avoid version mismatch errors
+          install-mode: goinstall
+          args: --out-format=colored-line-number
+
+  security:
+    name: Security Scan
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: "1.26"
+
+      - name: Govulncheck (Vulnerability Scan)
+        run: go run golang.org/x/vuln/cmd/govulncheck@latest ./...
+
+      - name: Gosec (Static Analysis Security Testing)
+        run: go run github.com/securego/gosec/v2/cmd/gosec@latest -exclude=G104 ./...
+
+  build:
+    name: Build Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: "1.26"
+      - name: Build Binary
+        # Replace path with your actual main.go entry point
+        run: go build -v -o rental-api ./cmd/main.go
