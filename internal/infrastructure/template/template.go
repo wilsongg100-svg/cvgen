@@ -2,11 +2,10 @@ package template
 
 import (
 	"bytes"
+	"cvgen/internal/resume"
 	"encoding/base64"
 	"encoding/json"
 	htmltemplate "html/template"
-
-	"cvgen/domain/resume"
 )
 
 type viewData struct {

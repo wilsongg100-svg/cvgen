@@ -1,16 +1,17 @@
 module cvgen
 
-go 1.22
+go 1.23
 
 require (
 	github.com/chromedp/chromedp v0.9.5
-	github.com/ledongthuc/pdf v0.0.0-20240201131950-da5b75280b06 // indirect
+	github.com/ledongthuc/pdf v0.0.0-20240201131950-da5b75280b06
 )
 
 require github.com/chromedp/cdproto v0.0.0-20240426225625-909263490071
 
 require (
 	github.com/chromedp/sysutil v1.0.0 // indirect
+	github.com/go-chi/chi/v5 v5.3.1 // indirect
 	github.com/gobwas/httphead v0.1.0 // indirect
 	github.com/gobwas/pool v0.2.1 // indirect
 	github.com/gobwas/ws v1.3.2 // indirect

@@ -102,9 +102,12 @@
         {{if .Candidate.Email}} | Email: {{.Candidate.Email}}{{end}}
         {{if .Candidate.Website}} | Portefólio: {{.Candidate.Website}}{{end}}
       </div>
-      {{if .Candidate.LinkedIn}}
-      <div>LinkedIn: {{.Candidate.LinkedIn}}{{if .Candidate.Location}} | {{.Candidate.Location}}{{end}}</div>
-      {{end}}
+      <div>
+        {{if .Candidate.GitHub}}Github: {{.Candidate.GitHub}}{{end}}
+        {{if .Candidate.LinkedIn}}
+        | LinkedIn: {{.Candidate.LinkedIn}}{{if .Candidate.Location}} | {{.Candidate.Location}}{{end}}
+        {{end}}
+      </div>
     </div>
   </div>
 
