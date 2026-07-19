@@ -12,3 +12,7 @@
     -H "Content-Type: application/json" \
     -d @exemplo-cv.json \
     --output cv.pdf
+
+## To do:
+
+Add tests
