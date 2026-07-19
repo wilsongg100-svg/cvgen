@@ -2,21 +2,17 @@ package generatecv
 
 import (
 	"context"
-
-	"cvgen/domain/resume"
+	"cvgen/internal/resume"
 )
 
-// TemplateRenderer converte um Resume em HTML.
 type TemplateRenderer interface {
 	Render(r *resume.Resume) (string, error)
 }
 
-// PDFRenderer converte HTML em bytes de um PDF.
 type PDFRenderer interface {
 	RenderPDF(ctx context.Context, html string) ([]byte, error)
 }
 
-// UseCase orquestra a geração do CV: HTML -> PDF.
 type UseCase struct {
 	templateRenderer TemplateRenderer
 	pdfRenderer      PDFRenderer
